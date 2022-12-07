@@ -2,7 +2,7 @@
 const db = require('../../data/dbConfig');
 
 function getResources() {
-    return db('resource')
+    return db('resources')
 }
 
 module.exports = {getResources}

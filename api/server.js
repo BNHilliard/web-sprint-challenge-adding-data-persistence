@@ -10,8 +10,8 @@ server.use(express.json())
 
 // 
 server.use('/api/projects', projectRouter)
-server.use('/api/resouce', resourceRouter)
-server.use('/api/task', taskRouter)
+server.use('/api/resources', resourceRouter)
+server.use('/api/tasks', taskRouter)
 
 server.use('*', (req, res) => {
     res.json({api: "up"})

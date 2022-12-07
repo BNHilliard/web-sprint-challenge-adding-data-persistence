@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const Task = require('./model');
+const Tasks = require('./model');
 
 router.get('/', (req, res, next) => {
-    Task.getTasks()
+    Tasks.getTasks()
     .then(resp =>{
         res.json(resp)
     }).catch(next)
