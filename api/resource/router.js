@@ -1,4 +1,13 @@
 const router = require('express').Router();
-const Resouce = require('./model');
+const Resource = require('./model');
+
+
+router.get('/', (req, res, next) => {
+    Resource.getResources()
+    .then(resp =>{
+        res.json(resp)
+    }).catch(next)
+})
+
 
 module.exports = router

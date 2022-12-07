@@ -9,7 +9,7 @@ const server = express();
 server.use(express.json())
 
 // 
-server.use('/api/project', projectRouter)
+server.use('/api/projects', projectRouter)
 server.use('/api/resouce', resourceRouter)
 server.use('/api/task', taskRouter)
 
