@@ -15,4 +15,14 @@ async function getTasks() {
         }
     return res
 }
-module.exports = {getTasks}
+
+async function getById(id) {
+    const res = await db('tasks').where('task_id', id)
+    return res
+}
+
+async function createTask(task) {
+    const res = await db('tasks').insert(task)
+    return res
+}
+module.exports = {getTasks, getById, createTask} 

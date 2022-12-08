@@ -13,7 +13,7 @@ exports.up = function(knex) {
   })
   .createTable('tasks', tbl => {
     tbl.increments('task_id');
-    tbl.string('task_description', 100).notNullable().unique();
+    tbl.string('task_description', 100).notNullable();
     tbl.string('task_notes', 200);
     tbl.boolean('task_completed').notNullable().defaultTo(false);
     tbl.integer('project_id').references('project_id').inTable('projects').notNullable();

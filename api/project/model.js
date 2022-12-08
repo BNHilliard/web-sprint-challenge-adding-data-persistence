@@ -16,8 +16,9 @@ async function getProjects() {
     return res
 }
  
-function getById(id) {
-    return db('projects').where('project_id', id)
+async function getById(id) {
+    const res = await db('projects').where('project_id', id)
+    return res
 }
 
 async function createProject(project) {

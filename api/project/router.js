@@ -9,6 +9,12 @@ router.get('/', (req, res, next) => {
     }).catch(next)
 })
 
+router.get('/:id', (req, res, next) => {
+    Projects.getById(req.params.id)
+    .then(resp => {
+        res.json(resp)
+    }).catch(next)
+})
 
 router.post('/', (req, res, next) => {
     if (!req.body.project_name) {
@@ -22,7 +28,9 @@ router.post('/', (req, res, next) => {
                                   project_name: project[0].project_name,
                                   project_description: project[0].project_description,
                                   project_completed: project[0].project_completed == 0 ? false : true})
-        }).catch(next)
+        }).catch(err => {
+            res.status(404).json({message: "project ID does not exist"})
+        })
     })
 }})
 
