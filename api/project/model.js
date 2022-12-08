@@ -16,7 +16,7 @@ async function getProjects() {
     return res
 }
  
-async function getById(id) {
+function getById(id) {
     return db('projects').where('project_id', id)
 }
 

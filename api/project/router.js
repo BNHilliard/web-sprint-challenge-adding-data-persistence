@@ -9,12 +9,6 @@ router.get('/', (req, res, next) => {
     }).catch(next)
 })
 
-router.get('/:id', (req, res, next) => {
-    Projects.getById(req.params.id)
-    .then(resp => {
-        res.json(resp)
-    }).catch(next)
-})
 
 router.post('/', (req, res, next) => {
     if (!req.body.project_name) {
@@ -25,9 +19,9 @@ router.post('/', (req, res, next) => {
         Projects.getById(resp)
         .then(project => {
             res.status(201).json({project_id: project[0].project_id,
-            project_name: project[0].project_name,
-        project_description: project[0].project_description,
-        project_completed: project[0].project_completed == 0 ? false : true})
+                                  project_name: project[0].project_name,
+                                  project_description: project[0].project_description,
+                                  project_completed: project[0].project_completed == 0 ? false : true})
         }).catch(next)
     })
 }})
